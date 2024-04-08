@@ -90,7 +90,7 @@ st.set_page_config(page_title="Engineer Application", layout='wide', initial_sid
 
 
 config_data = pd.read_csv('https://raw.githubusercontent.com/dudilu/platform/main/Date_config.csv', parse_dates=["Date"])
-alerts = pd.read_csv('C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\alerts.csv')
+alerts = pd.read_csv('https://raw.githubusercontent.com/dudilu/platform/main/alerts.csv')
 
 
 config_data["Date"] = pd.to_datetime(config_data["Date"], format='%d/%m/%Y')
