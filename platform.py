@@ -80,7 +80,7 @@ def initialize_session_state():
     if 'selected_files' not in st.session_state:
         st.session_state.selected_files = []
     if 'start_date' not in st.session_state:
-        st.session_state.start_date = datetime.now().date()
+        st.session_state.start_date = datetime.now().date() - pd.DateOffset(days=30)
     if 'end_date' not in st.session_state:
         st.session_state.end_date = datetime.now().date()
 
