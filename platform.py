@@ -180,7 +180,9 @@ if selected == "📈 Correlations":
             selected_wafer = np.array(selected_wafer, dtype=np.int64)
 
         with rows[1][2]:
-            ults_list = only_relevant(data, selected_wafer, 'wafer', 'ult')
+            ults_list1 = only_relevant(data, selected_wafer, 'wafer', 'ult')
+            ults_list2 = only_relevant(data, selected_lots, 'lot', 'ult')
+            ults_list = list(set(ults_list1).intersection(ults_list2))
 
             ults_list_all = add_all(ults_list)
 
