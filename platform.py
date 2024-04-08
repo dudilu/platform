@@ -317,7 +317,8 @@ if selected == "📊 Process":
 
 if selected == "📁 Upload file":
 
-    st.title("Upload Test File")
+    h2_upload_title = "<h2 style='color:#74B6FF'>Upload Test File</h2>"
+    st.markdown(h2_upload_title, unsafe_allow_html=True)
 
     uploaded_files = st.file_uploader("Upload test files", type=['csv'], accept_multiple_files=True)
 
