@@ -20,14 +20,11 @@ def correlation_plot(df, x_col, y_col):
         hover_data.append(df.apply(lambda row: row['ult'] if row['ult'] == 'ult' else None, axis=1))
 
     h2_title = f"<h2 style='color:#74B6FF'>Correlation Plot: {x_col} vs. {y_col}</h2>"
-    fig = px.scatter(df, x=x_col, y=y_col, color='lot', title=f"Correlation {x_col} and {y_col}",
+    fig = px.scatter(df, x=x_col, y=y_col, color='lot',
                      labels={x_col: x_col, y_col: y_col},
                      hover_data=hover_data,
                      height=800)
 
-    fig.update_layout(title=f"Correlation {x_col} and {y_col}",
-                      xaxis_title=x_col,
-                      yaxis_title=y_col)
 
     st.markdown(h2_title, unsafe_allow_html=True)
     st.plotly_chart(fig, use_container_width=True)
