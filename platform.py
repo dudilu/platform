@@ -422,7 +422,7 @@ if selected == "📁 Upload file":
                 progress_value = rows_processed / len(readout_file)
                 progress_bar.progress(progress_value)
         st.write("Saving Processed Data...")
-        filename = f'https://raw.githubusercontent.com/dudilu/platform/main/{results_pca['lot'].iloc[0]}.csv'
+        # filename = f'https://raw.githubusercontent.com/dudilu/platform/main/{results_pca['lot'].iloc[0]}.csv'
         concatenated_results_pca.to_csv(filename, index=False)
 
         concatenated_results_pca['Device_mode'] = concatenated_results_pca['Device'] + '_' + concatenated_results_pca['mode']
@@ -450,7 +450,7 @@ if selected == "📁 Upload file":
         for col, coeff in coeffs.items():
             pivot_df['iddq_est'] = pivot_df['iddq_est'] + pivot_df[col] * coeff
 
-        filename = f'C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\iddq\\{results_pca['lot'].iloc[0]}.csv'
+        # filename = f'C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\iddq\\{results_pca['lot'].iloc[0]}.csv'
         pivot_df.to_csv(filename, index=False)
 
         st.write("Processed Data Saved Successfully!")
