@@ -450,7 +450,7 @@ if selected == "📁 Upload file":
         for col, coeff in coeffs.items():
             pivot_df['iddq_est'] = pivot_df['iddq_est'] + pivot_df[col] * coeff
 
-        filename = f'https://raw.githubusercontent.com/dudilu/platform/main/corr/{results_pca['lot'].iloc[0]}.csv'
+        # filename = f'https://raw.githubusercontent.com/dudilu/platform/main/corr/{results_pca['lot'].iloc[0]}.csv'
         pivot_df.to_csv(filename, index=False)
 
         st.write("Processed Data Saved Successfully!")
