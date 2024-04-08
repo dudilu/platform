@@ -19,6 +19,7 @@ def correlation_plot(df, x_col, y_col):
     if 'ult' in df['ult'].values:
         hover_data.append(df.apply(lambda row: row['ult'] if row['ult'] == 'ult' else None, axis=1))
 
+    h2_title = f"<h2 style='color:#74B6FF'>Correlation Plot: {x_col} vs. {y_col}</h2>"
     fig = px.scatter(df, x=x_col, y=y_col, color='lot', title=f"Correlation {x_col} and {y_col}",
                      labels={x_col: x_col, y_col: y_col},
                      hover_data=hover_data,
@@ -28,6 +29,7 @@ def correlation_plot(df, x_col, y_col):
                       xaxis_title=x_col,
                       yaxis_title=y_col)
 
+    st.markdown(h2_title, unsafe_allow_html=True)
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -422,7 +424,7 @@ if selected == "📁 Upload file":
                 progress_value = rows_processed / len(readout_file)
                 progress_bar.progress(progress_value)
         st.write("Saving Processed Data...")
-        # filename = f'https://raw.githubusercontent.com/dudilu/platform/main/{results_pca['lot'].iloc[0]}.csv'
+        filename = f'https://raw.githubusercontent.com/dudilu/platform/main/{results_pca['lot'].iloc[0]}.csv'
         concatenated_results_pca.to_csv(filename, index=False)
 
         concatenated_results_pca['Device_mode'] = concatenated_results_pca['Device'] + '_' + concatenated_results_pca['mode']
@@ -450,7 +452,7 @@ if selected == "📁 Upload file":
         for col, coeff in coeffs.items():
             pivot_df['iddq_est'] = pivot_df['iddq_est'] + pivot_df[col] * coeff
 
-        # filename = f'C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\iddq\\{results_pca['lot'].iloc[0]}.csv'
+        filename = f'C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\iddq\\{results_pca['lot'].iloc[0]}.csv'
         pivot_df.to_csv(filename, index=False)
 
         st.write("Processed Data Saved Successfully!")
