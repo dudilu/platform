@@ -422,7 +422,7 @@ if selected == "📁 Upload file":
                 progress_value = rows_processed / len(readout_file)
                 progress_bar.progress(progress_value)
         st.write("Saving Processed Data...")
-        filename = f'C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\{results_pca['lot'].iloc[0]}.csv'
+        filename = f'https://raw.githubusercontent.com/dudilu/platform/main/{results_pca['lot'].iloc[0]}.csv'
         concatenated_results_pca.to_csv(filename, index=False)
 
         concatenated_results_pca['Device_mode'] = concatenated_results_pca['Device'] + '_' + concatenated_results_pca['mode']
@@ -439,7 +439,7 @@ if selected == "📁 Upload file":
             pivot_df[ratio_col] = pivot_df[ref_col] / pivot_df[leak_col]
             pivot_df[one_over_ratio_col] = pivot_df[leak_col] / pivot_df[ref_col]
 
-        coeffs_file = "C:\\Users\\DudiLubton\\PycharmProjects\\pythonProject\\platform\\agg1\\iddq_model_coeff.txt"
+        coeffs_file = "https://raw.githubusercontent.com/dudilu/platform/main/iddq_model_coeff.txt"
         coeffs = {}
         with open(coeffs_file, "r") as file:
             for line in file:
